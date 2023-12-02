@@ -127,7 +127,7 @@ function Passwords() {
   };
 
   useEffect(() => {
-    !isAuthenticated && history.replace("/passwords");
+    !isAuthenticated && history.replace("/");
   }, [isAuthenticated, history]);
 
   return (
