@@ -11,7 +11,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { setAuth, setPasswords } from "../../redux/actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-
+const validateEmail = (email) => {
+  const re =
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+};
 function Passwords() {
   const [platform, setPlatform] = useState("");
   const [platEmail, setPlatEmail] = useState("");
@@ -44,45 +48,47 @@ function Passwords() {
   };
 
   const addNewPassword = async () => {
-    try {
-      const data = {
-        platform: platform,
-        userPass: platPass,
-        platEmail: platEmail,
-        userEmail: email,
-      };
+    if (validateEmail(platEmail)) {
+      try {
+        const data = {
+          platform: platform,
+          userPass: platPass,
+          platEmail: platEmail,
+          userEmail: email,
+        };
 
-      const res = await saveNewPassword(data);
+        const res = await saveNewPassword(data);
 
-      if (res.status === 400) {
-        toast.error(res.data.error, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-      } else if (res.status === 200) {
-        setOpen(false);
-        verifyUser();
-        toast.success(res.data.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+        if (res.status === 400) {
+          toast.error(res.data.error, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        } else if (res.status === 200) {
+          setOpen(false);
+          verifyUser();
+          toast.success(res.data.message, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
 
-        setPlatform("");
-        setPlatEmail("");
-        setPlatPass("");
+          setPlatform("");
+          setPlatEmail("");
+          setPlatPass("");
+        }
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
     }
   };
   const generatePass = (e) => {
@@ -126,10 +132,10 @@ function Passwords() {
     setPlatPass(pass);
   };
 
-  // useEffect(() => {
-  //   console.log("history", history)
-  //   !isAuthenticated && history.replace("/");
-  // }, [isAuthenticated, history]);
+  useEffect(() => {
+    console.log("history", history);
+    !isAuthenticated && history.replace("/passwords");
+  }, [isAuthenticated, history]);
 
   return (
     <div className="passwords">
