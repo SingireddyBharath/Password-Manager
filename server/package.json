@@ -6,7 +6,7 @@
   "scripts": {
     "start:dev": "nodemon app.js"
   },
-  "author": "Rohit Saini",
+  "author": "Bharath",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",

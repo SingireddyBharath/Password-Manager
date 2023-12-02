@@ -84,7 +84,7 @@ router.post("/addnewpassword", authenticate, async (req, res) => {
 
   try {
     const rootUser = req.rootUser;
-      const { iv, encryptedPassword } = encrypt(userPass, rootUser.password);
+    const { iv, encryptedPassword } = encrypt(userPass, rootUser.password);
     const isSaved = await rootUser.addNewPassword(
       encryptedPassword,
       iv,
@@ -138,10 +138,11 @@ router.get("/logout", (req, res) => {
   res.status(200).send("Logout");
 });
 
-router.post("/decrypt", (req, res) => {
+router.post("/decrypt", authenticate, async (req, res) => {
   const { iv, encryptedPassword } = req.body;
-
-  return res.status(200).send(decrypt(encryptedPassword, iv));
+  return res
+    .status(200)
+    .send(decrypt(encryptedPassword, iv, req.rootUser.password));
 });
 
 module.exports = router;

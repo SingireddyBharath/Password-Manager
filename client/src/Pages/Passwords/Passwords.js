@@ -35,6 +35,7 @@ function Passwords() {
         dispatch(setAuth(false));
       } else {
         const { passwords } = res.data;
+        console.log(res.data);
         dispatch(setPasswords(passwords));
       }
     } catch (error) {
