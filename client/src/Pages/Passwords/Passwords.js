@@ -126,9 +126,10 @@ function Passwords() {
     setPlatPass(pass);
   };
 
-  useEffect(() => {
-    !isAuthenticated && history.replace("/");
-  }, [isAuthenticated, history]);
+  // useEffect(() => {
+  //   console.log("history", history)
+  //   !isAuthenticated && history.replace("/");
+  // }, [isAuthenticated, history]);
 
   return (
     <div className="passwords">
