@@ -136,9 +136,17 @@ router.post("/deletepassword", authenticate, async (req, res) => {
 });
 
 router.get("/logout", (req, res) => {
-  res.clearCookie("jwtoken", { path: "/" });
+  // Match the options of the cookie being cleared with how it was set
+  res.clearCookie("jwtoken", {
+    path: "/",
+    secure: true, // Required because the cookie was set with this flag
+    sameSite: 'None', // Must match the SameSite attribute when setting the cookie
+    httpOnly: true // If the cookie was set using httpOnly it should also be cleared with it.
+  });
+
   res.status(200).send("Logout");
 });
+
 
 router.post("/decrypt", authenticate, async (req, res) => {
   const { iv, encryptedPassword } = req.body;

@@ -13,7 +13,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-size: 45% 700px;
-        /* Replace with required dimensions */
+    /* Replace with required dimensions */
 }
 
 
@@ -32,6 +32,10 @@
 
 .home__left p {
     margin-top: 2rem;
+}
+
+.home__left {
+    margin-left: 300px !important;
 }
 
 .home__left a {
