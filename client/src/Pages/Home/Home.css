@@ -3,26 +3,31 @@
     height: 89vh;
     padding: 2rem;
     background-color: #ffffff;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg stroke='%23CCC' stroke-width='0' %3E%3Crect fill='%23F5F5F5' x='-60' y='-60' width='110' height='240'/%3E%3C/g%3E%3C/svg%3E");display: flex;
+    background-image: url("../../assets/images/h3.svg");
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     text-align: center;
     font-family: 'Poppins', sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 45% 700px;
+        /* Replace with required dimensions */
 }
 
 
 .name {
     color: inherit;
-	text-decoration: none;
-	box-shadow: inset 0 -.1em 0 0 #ddd;
-	transition-property: box-shadow, color;
-	transition-duration: .2s, .4s;
+    text-decoration: none;
+    box-shadow: inset 0 -.1em 0 0 #ddd;
+    transition-property: box-shadow, color;
+    transition-duration: .2s, .4s;
 }
 
 .name:hover {
-	color: #888;
-	box-shadow: inset 0 -.25em 0 0 #ddd;
+    color: #888;
+    box-shadow: inset 0 -.25em 0 0 #ddd;
 }
 
 .home__left p {
@@ -35,8 +40,8 @@
     color: #000;
     padding: 0.5rem;
     transition: all 0.3s ease;
-    background: #4ae3b5;
-    box-shadow: 0 23px 25px -9px #4ae3b5;
+    background: #e28cc7;
+    box-shadow: 0 23px 25px -9px #92577f;
     position: relative;
     text-decoration: none;
 }

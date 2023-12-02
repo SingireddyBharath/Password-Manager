@@ -64,6 +64,15 @@ function Password({ id, name, password, email, iv }) {
       }
     } catch (error) {
       console.log(error);
+      toast.error("Error in decrypting", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   };
 
