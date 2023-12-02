@@ -3,14 +3,25 @@ const app = express();
 const dotenv = require("dotenv");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-app.use(
-  cors({
-    credentials: true,
-    origin: "https://password-manager-5pvr.onrender.com",
-  })
-);
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+const corsOptionsDelegate = function (req, callback) {
+  const allowedOrigins = [
+    "http://localhost:3000",
+    "https://password-manager-5pvr.onrender.com",
+  ];
+  let corsOptions;
+  if (allowedOrigins.indexOf(req.header('Origin')) !== -1) {
+    // Enable CORS for this request
+    corsOptions = { origin: true, credentials: true };
+  } else {
+    // Disable CORS for this request
+    corsOptions = { origin: false };
+  }
+  callback(null, corsOptions); // callback expects two parameters: error and options
+};
+
+app.use(cors(corsOptionsDelegate));
 app.use(cookieParser());
+
 // SETTING UP DOTENV
 dotenv.config({ path: "./config.env" });
 
