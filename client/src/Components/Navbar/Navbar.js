@@ -26,62 +26,90 @@ function Navbar()
     }
 
     return (
-        <nav className="navbar">
+      <nav className="navbar">
+        <div className="navbar__left">
+          <h2>
+            {" "}
+            <Link to="/">
+              {" "}
+              <div class="animated-name">
+                CryptoSafe: Enhanced Password Protection
+              </div>
+            </Link>{" "}
+          </h2>
+        </div>
 
-            <div className="navbar__left">
-                <h2> <Link to="/"> Password Manager </Link> </h2>
-            </div>
+        <div className="navbar__right">
+          <div className="right__menu">
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              {isAuthenticated ? (
+                <>
+                  <li>
+                    <Link to="/passwords">Passwords</Link>
+                  </li>
+                  <li>
+                    <Link to="/logout">Logout</Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link to="/signin">SignIn</Link>
+                  </li>
+                  <li>
+                    <Link to="/signup">SignUp</Link>
+                  </li>
+                </>
+              )}
+            </ul>
+          </div>
+          <FontAwesomeIcon
+            icon={faBars}
+            className="menu__icon"
+            onClick={handleMenu}
+          />
+        </div>
 
-            <div className="navbar__right">
-                <div className="right__menu">
-                    <ul>
-                        <li><Link to="/">Home</Link></li>
-                        {
-                            isAuthenticated ?
-                                (<>
-                                    <li><Link to="/passwords">Passwords</Link></li>
-                                    <li><Link to="/logout">Logout</Link></li>
-                                </>)
-                                :
-                                (<>
-                                    <li><Link to="/signin">SignIn</Link></li>
-                                    <li><Link to="/signup">SignUp</Link></li>
-                                </>)
-
-                        }
-                    </ul>
-                </div>
-                <FontAwesomeIcon icon={faBars} className="menu__icon" onClick={handleMenu} />
-            </div>
-
-            <div className="phone__nav" ref={menu}>
-                <div className="back">
-                    <FontAwesomeIcon icon={faArrowLeft} className="back__button" onClick={handleMenu} />
-                </div>
-                <ul>
-                    <li className="nav-item"><Link to="/" onClick={handleMenu}>Home</Link></li>
-                    {
-                        isAuthenticated ?
-                            (
-                                <>
-                                    <li className="nav-item" onClick={handleMenu}><Link to="/passwords">Passwords</Link></li>
-                                    <li className="nav-item" onClick={handleMenu}><Link to="/logout">Logout</Link></li>
-                                </>
-                            )
-                            :
-                            (
-                                <>
-                                    <li className="nav-item" onClick={handleMenu}><Link to="/signin">SignIn</Link></li>
-                                    <li className="nav-item" onClick={handleMenu}><Link to="/signup">SignUp</Link></li>
-                                </>
-                            )
-                    }
-
-
-                </ul>
-            </div>
-        </nav>
-    )
+        <div className="phone__nav" ref={menu}>
+          <div className="back">
+            <FontAwesomeIcon
+              icon={faArrowLeft}
+              className="back__button"
+              onClick={handleMenu}
+            />
+          </div>
+          <ul>
+            <li className="nav-item">
+              <Link to="/" onClick={handleMenu}>
+                Home
+              </Link>
+            </li>
+            {isAuthenticated ? (
+              <>
+                <li className="nav-item" onClick={handleMenu}>
+                  <Link to="/passwords">Passwords</Link>
+                </li>
+                <li className="nav-item" onClick={handleMenu}>
+                  <Link to="/logout">Logout</Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="nav-item" onClick={handleMenu}>
+                  <Link to="/signin">SignIn</Link>
+                </li>
+                <li className="nav-item" onClick={handleMenu}>
+                  <Link to="/signup">SignUp</Link>
+                </li>
+              </>
+            )}
+          </ul>
+        </div>
+      </nav>
+    );
 }
 
 export default Navbar;

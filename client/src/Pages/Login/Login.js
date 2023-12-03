@@ -113,28 +113,6 @@ function Login()
           <button onClick={handleLogin}> Login </button>
         </div>
 
-        <div className="login_right">
-          <img src={img} alt="login.jpg" />
-
-          <div className="login__content">
-            <h1> Login </h1>
-            <h4> Get your password secured with us for free. </h4>
-
-            <p>
-              Did not have any Account?
-              <Link to="/signup"> Signup </Link>
-            </p>
-
-            <a
-              className="attr"
-              href="https://www.freepik.com/vectors/star"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Star vector created by vectorpouch - www.freepik.com
-            </a>
-          </div>
-        </div>
       </div>
     </div>
   );

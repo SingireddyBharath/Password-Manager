@@ -1,4 +1,5 @@
 .signup {
+  background-color: burlywood;
   width: 100%;
   height: 90vh;
   display: flex;
@@ -7,34 +8,11 @@
   font-family: "Poppins", sans-serif;
   position: relative;
 }
-
-.signup::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 60%;
-  height: 100%;
-  background-color: #9ca1bc;
-  z-index: -1;
-}
-
-.signup::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 40%;
-  height: 100%;
-  background-color: #cae380;
-  z-index: -1;
-}
-
 .signup__wrapper {
-  width: 85%;
-  height: 80%;
+  width: 30%;
+  height:80%;
   border-radius: 13px;
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
 .signup__left {
@@ -46,7 +24,7 @@
   justify-content: center;
   flex-direction: column;
   backdrop-filter: blur(40px);
-  /* border-radius: 0.5rem; */
+  border-radius: 0.5rem;
   background-color: rgb(153, 148, 148) !important;
   font-size: 0.7rem;
   padding: 1rem 0;
@@ -89,9 +67,7 @@
   color: #eeeeee;
 }
 
-.signup__right {
-  display: none;
-}
+
 
 @media only screen and (min-width: 900px) {
   .signup__wrapper {
@@ -104,25 +80,6 @@
     flex: 40%;
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
-  }
-
-  .signup__right {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    flex: 60%;
-    padding: 3rem;
-    background-color: #da6886;
-    position: relative;
-  }
-
-  .signup__right img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 
   .signup__content {
