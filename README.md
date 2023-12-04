@@ -9,7 +9,7 @@ You can login and save your passwords. Passwords are saved in the database after
 Go to the folder in which you want to clone the project and run the following command
 
 ```bash
-git clone https://github.com/rockingrohit9639/password-manager-mern.git
+git clone https://github.com/SingireddyBharath/Password-Manager.git
 ```
 
 ### Setting up the server
