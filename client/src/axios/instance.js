@@ -1,5 +1,5 @@
 import axios from "axios";
-const isDev = false;
+const isDev = true;
 
 const url = isDev
   ? "http://localhost:8000"
