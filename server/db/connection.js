@@ -9,8 +9,8 @@ mongoose
     useFindAndModify: false,
   })
   .then(() => {
-    console.log("Connection success.");
+    console.log("DB Connection success.");
   })
   .catch((error) => {
-    console.log(error);
+    console.log("Error in connecting to DB",error);
   });
