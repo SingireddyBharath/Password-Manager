@@ -23,6 +23,7 @@
 
 .animated-name {
   animation: fadeIn 2s;
+  color: #171332;
 }
 
 .navbar .navbar__left h2 a {

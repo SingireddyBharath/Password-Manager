@@ -141,22 +141,22 @@ function Passwords() {
     <div className="passwords">
       <ToastContainer />
       <h1>
-        Welcome <span className="name"> {name} </span>{" "}
+        Welcome <span className="name"> to Password Store </span>{" "}
       </h1>
 
       <div className="modal">
         <button className="modalButton" onClick={() => setOpen(true)}>
-          Add New Password
+          Create a New Password
         </button>
 
         <Modal open={open} onClose={() => setOpen(false)}>
-          <h2>Add a new password</h2>
+          <h2>Create a New Password</h2>
           <form className="form">
             <div className="form__inputs">
-              <label> Platform </label>
+              <label> Website </label>
               <input
                 type="text"
-                placeholder="E.g. Facebook"
+                placeholder="E.g. Google"
                 value={platform}
                 onChange={(e) => setPlatform(e.target.value)}
                 required
@@ -167,7 +167,7 @@ function Passwords() {
               <label> Email </label>
               <input
                 type="email"
-                placeholder="E.g. rohitsaini@gmail.com"
+                placeholder="E.g. jhon@gmail.com"
                 value={platEmail}
                 onChange={(e) => setPlatEmail(e.target.value)}
                 required
@@ -205,7 +205,10 @@ function Passwords() {
               Autogenerate Secured Password{" "}
             </button>
             <br />
-            <button onClick={addNewPassword}> Add </button>
+            <button onClick={addNewPassword} className="add-btn">
+              {" "}
+              Add{" "}
+            </button>
           </form>
         </Modal>
       </div>

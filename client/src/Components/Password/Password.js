@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "./Password.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import {
+  faExclamationTriangle,
+  faEyeSlash,
+} from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -20,26 +23,8 @@ function Password({ id, name, password, email, iv }) {
       const res = await deleteAPassword({ id });
 
       if (res.status === 400) {
-        toast.error(res.data.error, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
       } else if (res.status === 200) {
         dispatch(delPass(id));
-        toast.success(res.data.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
       }
     } catch (err) {
       console.log(err);
@@ -64,15 +49,6 @@ function Password({ id, name, password, email, iv }) {
       }
     } catch (error) {
       console.log(error);
-      toast.error("Error in decrypting", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
     }
   };
 
@@ -83,13 +59,13 @@ function Password({ id, name, password, email, iv }) {
         <i className={`fab fa-${name.toLowerCase()}`}></i>
         <h3 className="password__name"> {name} </h3>
 
-        {
+        {/* {
           <FontAwesomeIcon
             className="delete__btn1"
             onClick={deletePassword}
             icon={faTrash}
           />
-        }
+        } */}
       </div>
 
       <div className="email">
